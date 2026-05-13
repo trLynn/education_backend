@@ -1,0 +1,43 @@
+# Dependencies
+/vendor
+/node_modules
+
+# Laravel generated & storage files
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+
+# Environment variables
+.env
+.env.backup
+.env.production
+.env.testing
+
+# Testing
+.phpunit.result.cache
+/coverage
+
+# Debug & log files
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+pnpm-debug.log
+
+# Virtual machines / Docker
+Homestead.json
+Homestead.yaml
+docker-compose.override.yml
+.phpunit.result.cache
+
+# OS and Editor files
+.DS_Store
+.AppleDouble
+.LSOverride
+/.idea
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
