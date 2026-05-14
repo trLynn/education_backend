@@ -31,6 +31,7 @@ return new class extends Migration
 
             // Common Attributes
             $table->string('phone')->nullable();
+            $table->boolean('is_quiz_premium')->default(false);
 
             $table->rememberToken();
             $table->timestamps();

@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\BlockController;
+use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubChapterController;
+use App\Http\Controllers\TextbookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TextbookController;
-use App\Http\Controllers\ChapterController;
-use App\Http\Controllers\SubChapterController;
-use App\Http\Controllers\BlockController;
-use App\Http\Controllers\StudentController;
 
 // Login ဝင်ပြီးသား User မှသာ အသုံးပြုနိုင်မည့် Routes များ
 Route::middleware('auth:sanctum')->group(function () {
@@ -47,4 +49,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    Route::post('sub-chapters/{id}/generate-quiz', [QuizController::class, 'generateAiQuiz']);
+
+    // AI Tutor နှင့် ချိတ်ဆက်ရန် Routes များ
+    Route::post('/chat/send', [ChatController::class, 'sendMessage']);
+    Route::get('/chat/{sessionId}', [ChatController::class, 'getChatHistory']);
 });
